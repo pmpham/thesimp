@@ -1,3 +1,5 @@
+import rps
+
 async def command(message, msgstring):
     botids = [904955459650338857, 892480198921031700]
     if message.author.id not in botids:
@@ -15,3 +17,7 @@ async def command(message, msgstring):
         if msgstring == "!dev":
             await message.channel.send("I am a CS student at CSULB hoping to further my knowledge and become a programmer in the future\nCheck out my Linktree! https://linktr.ee/petermpham")
             print(f"{message.author.name}#{message.author.discriminator} used !dev")
+
+        if "!rps" in msgstring:
+            await rps.rps(message,msgstring)
+    

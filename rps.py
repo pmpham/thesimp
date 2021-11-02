@@ -1,53 +1,41 @@
 import random
+import discord
 
-status = "Yes"
-totalWins=0
-totalLosses=0
-totalTies=0
 choices=["Rock","Paper","Scissors"]
 
-while status == "Yes":
-    playerChoice =""
-    while choices.count(playerChoice)==0:
-        playerChoice = input("Pick Rock, Paper, or Scissors and press enter")
+
+async def rps(message,msgstr):
+        rpsidx = (msgstr.index("!rps"))
+        playerChoice = msgstr[rpsidx+5::]
         playerChoice = playerChoice.capitalize()
+        userid = message.author.id
 
-    print("successfully chosen")
+        print(playerChoice)
+        if playerChoice in choices:
 
-    npcChoice = choices[random.randint(0,2)]
-    print (f"The computer chose {npcChoice.lower()}!")
+            print("successfully chosen")
 
-    if playerChoice == "Rock" and npcChoice == "Rock":
-        print("Tie!")
-        totalTies+=1
-    elif playerChoice == "Rock" and npcChoice == "Paper":
-        print("You Lose :(")
-        totalLosses+=1
-    elif playerChoice == "Rock" and npcChoice == "Scissors":
-        print("You Win!")
-        totalWins+=1
-    elif playerChoice == "Paper" and npcChoice == "Rock":
-        print ("You Win!")
-        totalWins+=1
-    elif playerChoice == "Paper" and npcChoice == "Paper":
-        print ("Tie!")
-        totalTies+=1
-    elif playerChoice == "Paper" and npcChoice == "Scissors":
-        print ("You Lose :(")
-        totalLosses+=1
-    elif playerChoice == "Scissors" and npcChoice == "Rock":
-        print ("You Lose :(")
-        totalLosses+=1
-    elif playerChoice == "Scissors" and npcChoice == "Paper":
-        print ("You Win!")
-        totalWins+=1
-    elif playerChoice == "Scissors" and npcChoice == "Scissors":
-        print ("Tie!(")
-        totalTies+=1
+            npcChoice = choices[random.randint(0,2)]
+            await message.channel.send(f"The computer chose {npcChoice.lower()}!")
+
+            if playerChoice == "Rock" and npcChoice == "Rock":
+                await message.channel.send("Tie!")
+            elif playerChoice == "Rock" and npcChoice == "Paper":
+                await message.channel.send("You Lose :(")
+            elif playerChoice == "Rock" and npcChoice == "Scissors":
+                await message.channel.send("You Win!")
+            elif playerChoice == "Paper" and npcChoice == "Rock":
+                await message.channel.send("You Win!")
+            elif playerChoice == "Paper" and npcChoice == "Paper":
+                await message.channel.send("Tie!")
+            elif playerChoice == "Paper" and npcChoice == "Scissors":
+                await message.channel.send("You Lose :(")
+            elif playerChoice == "Scissors" and npcChoice == "Rock":
+                await message.channel.send("You Lose :(")
+            elif playerChoice == "Scissors" and npcChoice == "Paper":
+                await message.channel.send("You Win!")
+            elif playerChoice == "Scissors" and npcChoice == "Scissors":
+                await message.channel.send("Tie!(")
         
-
-    status = (input("Type yes to continue enter to exit")).capitalize()
-        
-print("Game ended")
-print(f"Win Loss Ratio is {totalWins}:{totalLosses}")
-print(f"Total Ties: {totalTies}")
+        else:
+            await message.channel.send("Choose a correct item!")
