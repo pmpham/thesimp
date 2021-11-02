@@ -8,3 +8,10 @@ async def command(message, msgstring):
         if "sex" in msgstring:
             await message.channel.send('sex is for virgins')
             print(f"{message.author.name}#{message.author.discriminator} said sex")
+        if msgstring == "!about":
+            await message.channel.send("This is a personal project developed by Peter to learn more about Git and Python.\nUse !dev to learn more about Peter!")
+            print(f"{message.author.name}#{message.author.discriminator} used !about")
+
+        if msgstring == "!dev":
+            await message.channel.send("I am a CS student at CSULB hoping to further my knowledge and become a programmer in the future\nCheck out my Linktree! https://linktr.ee/petermpham")
+            print(f"{message.author.name}#{message.author.discriminator} used !dev")
