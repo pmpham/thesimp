@@ -35,7 +35,7 @@ async def rps(message,msgstr):
             elif playerChoice == "Scissors" and npcChoice == "Paper":
                 await message.channel.send("You Win!")
             elif playerChoice == "Scissors" and npcChoice == "Scissors":
-                await message.channel.send("Tie!(")
+                await message.channel.send("Tie!")
         
         else:
             await message.channel.send("Choose a correct item!")
