@@ -19,5 +19,8 @@ async def command(message, msgstring):
             print(f"{message.author.name}#{message.author.discriminator} used !dev")
 
         if "!rps" in msgstring:
-            await rps.rps(message,msgstring)
+            if message.author.id == "228283737660456972":
+                message.channel.send("i dont play with shitters")
+            else:
+                await rps.rps(message,msgstring)
     
