@@ -1,8 +1,7 @@
 import rps
 
 async def command(message, msgstring):
-    botids = [904955459650338857, 892480198921031700]
-    if message.author.id not in botids:
+    if not (message.author.bot):
         if msgstring == 'test':
             await message.channel.send('Testing 1 2 3!')
             print(f"{message.author.name}#{message.author.discriminator} said test")
@@ -19,9 +18,5 @@ async def command(message, msgstring):
             print(f"{message.author.name}#{message.author.discriminator} used !dev")
 
         if "!rps" in msgstring:
-            ids = [278364691531694082,228283737660456972]
-            if message.author.id in ids:
-                message.channel.send("i dont play with shitters")
-            else:
-                await rps.rps(message,msgstring)
+            await rps.rps(message,msgstring)
     
