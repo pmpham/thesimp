@@ -1,4 +1,5 @@
 import rps
+import riotcoms
 
 async def command(message, msgstring):
     if not (message.author.bot):
@@ -19,4 +20,7 @@ async def command(message, msgstring):
 
         if "!rps" in msgstring:
             await rps.rps(message,msgstring)
+
+        if "!lol" in msgstring:
+            await message.channel.send(riotcoms.leaguesearch(msgstring[msgstring.index("!lol")+5:]))
     
