@@ -2,6 +2,10 @@ import discord
 from discord.ext.commands import Bot
 import botcoms
 
+from dotenv import load_dotenv
+load_dotenv()
+import os
+
 bot = Bot(command_prefix='$')
 TOKEN = '<INSERT TOKEN HERE>'
 
@@ -16,4 +20,4 @@ async def on_message(message):
 
 
 		
-bot.run('OTA0OTU1NDU5NjUwMzM4ODU3.YYDDcg.zlTQVambY7XKOhKxxIavVVRIRV0')
+bot.run(os.getenv("DISCORD_KEY"))
