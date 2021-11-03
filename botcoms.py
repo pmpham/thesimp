@@ -19,7 +19,7 @@ async def command(message, msgstring):
             print(f"{message.author.name}#{message.author.discriminator} used !dev")
 
         if "!rps" in msgstring:
-            ids = ["278364691531694082","228283737660456972"]
+            ids = [278364691531694082,228283737660456972]
             if message.author.id in ids:
                 message.channel.send("i dont play with shitters")
             else:
