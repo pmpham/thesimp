@@ -19,31 +19,31 @@ async def rps(message,msgstr):
             await message.channel.send(f"The computer chose {npcChoice.lower()}!")
 
             if playerChoice == "Rock" and npcChoice == "Rock":
-                await message.channel.send(f"@{message.author.id} Tie!")
-                
+                await message.channel.send(f"<@{message.author.id}> Tie!")
+
             elif playerChoice == "Rock" and npcChoice == "Paper":
-                await message.channel.send(f"@{message.author.id} You Lose :(")
+                await message.channel.send(f"<@{message.author.id}> You Lose :(")
 
             elif playerChoice == "Rock" and npcChoice == "Scissors":
-                await message.channel.send(f"@{message.author.id} You Win!")
+                await message.channel.send(f"<@{message.author.id}> You Win!")
 
             elif playerChoice == "Paper" and npcChoice == "Rock":
-                await message.channel.send(f"@{message.author.id} You Win!")
+                await message.channel.send(f"<@{message.author.id}> You Win!")
 
             elif playerChoice == "Paper" and npcChoice == "Paper":
-                await message.channel.send(f"@{message.author.id} Tie!")
+                await message.channel.send(f"<@{message.author.id}> Tie!")
 
             elif playerChoice == "Paper" and npcChoice == "Scissors":
-                await message.channel.send(f"@{message.author.id} You Lose :(")
+                await message.channel.send(f"<@{message.author.id}> You Lose :(")
 
             elif playerChoice == "Scissors" and npcChoice == "Rock":
-                await message.channel.send(f"@{message.author.id} You Lose :(")
+                await message.channel.send(f"<@{message.author.id}> You Lose :(")
 
             elif playerChoice == "Scissors" and npcChoice == "Paper":
-                await message.channel.send(f"@{message.author.id} You Win!")
+                await message.channel.send(f"<@{message.author.id}> You Win!")
 
             elif playerChoice == "Scissors" and npcChoice == "Scissors":
-                await message.channel.send(f"@{message.author.id} Tie!")
+                await message.channel.send(f"<@{message.author.id}> Tie!")
         
         else:
             await message.channel.send("Choose a correct item!")
