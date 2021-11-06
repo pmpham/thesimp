@@ -38,10 +38,12 @@ class player(str):
         url = (f"https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/{self.name}?api_key={riotkey}")
         response = json.loads(requests.get(url).text)
         message = ""
+        print(url)
         try:
             message = (response["status"])["message"]
         except KeyError:
             pass
+        print(f"messgae is {message}")
         if message == "":
             #print("making it to summoner if")
             self.name = response["name"]
@@ -51,6 +53,8 @@ class player(str):
 
 
     def leaguev4search(self,summonerid:str):
+        print("in leage search")
+        print(summonerid)
         if self.summonerid == "":
             return False
         else:
