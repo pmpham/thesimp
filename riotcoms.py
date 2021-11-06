@@ -79,4 +79,4 @@ class player(str):
         if self.puuid != "":
             return(f"{self.name} is {self.fullrank}, {self.wr}")
         else:
-            return("not a valid name")
+            return(f"not a valid name: {self.name} ")
