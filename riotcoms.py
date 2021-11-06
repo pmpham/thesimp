@@ -73,3 +73,4 @@ class player(str):
             return(f"{self.name} is {self.fullrank}, {self.wr}")
         else:
             return("not a valid name")
+
