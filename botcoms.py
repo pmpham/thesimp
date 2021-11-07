@@ -28,4 +28,4 @@ async def command(message, msgstring):
             await message.channel.send(riotcoms.leaguesearch(msgstring[msgstring.index("!sum")+5:]))
 
         if "!tft" in msgstring:
-            await message.channel.send(riotcoms.leaguesearch(msgstring[msgstring.index("!tft")+5:]))
+            await message.channel.send(riotcoms.player(msgstring[msgstring.index("!tft")+5:]).tftsearch())
