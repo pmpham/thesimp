@@ -22,6 +22,10 @@ async def command(message, msgstring):
             await rps.rps(message,msgstring)
 
         if "!lol" in msgstring:
-            await message.channel.send(riotcoms.leaguesearch(msgstring[msgstring.index("!lol")+5:]))
             await message.channel.send(riotcoms.player(msgstring[msgstring.index("!lol")+5:]).newleaguesearch())
-    
+        
+        if "!sum" in msgstring:
+            await message.channel.send(riotcoms.leaguesearch(msgstring[msgstring.index("!lol")+5:]))
+
+        if "!tft" in msgstring:
+            await message.channel.send(riotcoms.leaguesearch(msgstring[msgstring.index("!lol")+5:]))
