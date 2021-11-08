@@ -73,7 +73,6 @@ class player(str):
                     self.wr = f"{self.wins}W: {self.losses}L"
                 else:
                     response = response[1]
-                    response = response[0]
                     self.tier = response ["tier"]
                     self.rank = response["rank"]
                     self.lp = response ["leaguePoints"]
