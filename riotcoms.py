@@ -61,14 +61,26 @@ class player(str):
             except KeyError:
                 pass
             if message == "":
-                response = response[0]
-                self.tier = response ["tier"]
-                self.rank = response["rank"]
-                self.lp = response ["leaguePoints"]
-                self.fullrank = f"{self.tier} {self.rank} {self.lp} LP"
-                self.wins = response["wins"]
-                self.losses = response["losses"]
-                self.wr = f"{self.wins}W: {self.losses}L"
+                
+                if response[0]["queueType"] == "RANKED_SOLO_5x5":
+                    response = response[0]
+                    self.tier = response ["tier"]
+                    self.rank = response["rank"]
+                    self.lp = response ["leaguePoints"]
+                    self.fullrank = f"{self.tier} {self.rank} {self.lp} LP"
+                    self.wins = response["wins"]
+                    self.losses = response["losses"]
+                    self.wr = f"{self.wins}W: {self.losses}L"
+                else:
+                    response = response[1]
+                    response = response[0]
+                    self.tier = response ["tier"]
+                    self.rank = response["rank"]
+                    self.lp = response ["leaguePoints"]
+                    self.fullrank = f"{self.tier} {self.rank} {self.lp} LP"
+                    self.wins = response["wins"]
+                    self.losses = response["losses"]
+                    self.wr = f"{self.wins}W: {self.losses}L"
 
     def tftv1search(self,summonerid:str):
         if self.summonerid == "":
