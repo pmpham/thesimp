@@ -46,6 +46,8 @@ class player(str):
             self.puuid = response["puuid"]
             self.summonerid = response["id"]
             self.level = response ["summonerLevel"]
+            return True
+        return False
 
 
     def leaguev4search(self,summonerid:str):
@@ -60,27 +62,34 @@ class player(str):
                 
             except KeyError:
                 pass
-            if message == "":
-                
-                if response[0]["queueType"] == "RANKED_SOLO_5x5":
-                    response = response[0]
-                    self.tier = response ["tier"]
-                    self.rank = response["rank"]
-                    self.lp = response ["leaguePoints"]
-                    self.fullrank = f"{self.tier} {self.rank} {self.lp} LP"
-                    self.wins = response["wins"]
-                    self.losses = response["losses"]
-                    self.wr = f"{self.wins}W: {self.losses}L"
-                else:
-                    response = response[1]
-                    self.tier = response ["tier"]
-                    self.rank = response["rank"]
-                    self.lp = response ["leaguePoints"]
-                    self.fullrank = f"{self.tier} {self.rank} {self.lp} LP"
-                    self.wins = response["wins"]
-                    self.losses = response["losses"]
-                    self.wr = f"{self.wins}W: {self.losses}L"
 
+            if response == []:
+                return False
+            else: 
+                if message == "":
+                    
+                    if response[0]["queueType"] == "RANKED_SOLO_5x5":
+                        response = response[0]
+                        self.tier = response ["tier"]
+                        self.rank = response["rank"]
+                        self.lp = response ["leaguePoints"]
+                        self.fullrank = f"{self.tier} {self.rank} {self.lp} LP"
+                        self.wins = response["wins"]
+                        self.losses = response["losses"]
+                        self.wr = f"{self.wins}W: {self.losses}L"
+                        return True
+                    else:
+                        response = response[1]
+                        self.tier = response ["tier"]
+                        self.rank = response["rank"]
+                        self.lp = response ["leaguePoints"]
+                        self.fullrank = f"{self.tier} {self.rank} {self.lp} LP"
+                        self.wins = response["wins"]
+                        self.losses = response["losses"]
+                        self.wr = f"{self.wins}W: {self.losses}L"
+                        return True
+        return False
+        
     def tftv1search(self,summonerid:str):
         if self.summonerid == "":
             return False   
@@ -92,30 +101,38 @@ class player(str):
                 message = (response[0])[0]
             except KeyError:
                 pass
-            if message == "":
-                response = response[0]
-                self.tier = response ["tier"]
-                self.rank = response["rank"]
-                self.lp = response ["leaguePoints"]
-                self.fullrank = f"{self.tier} {self.rank} {self.lp} LP"
-                self.wins = response["wins"]
-                self.losses = response["losses"]
-                self.wr = f"{self.wins}W: {self.losses}L"
+            if response == []:
+                return False
+            else:
+                if message == "":
+                    response = response[0]
+                    self.tier = response ["tier"]
+                    self.rank = response["rank"]
+                    self.lp = response ["leaguePoints"]
+                    self.fullrank = f"{self.tier} {self.rank} {self.lp} LP"
+                    self.wins = response["wins"]
+                    self.losses = response["losses"]
+                    self.wr = f"{self.wins}W: {self.losses}L"
+                    return True
+        return False
 
     def newleaguesearch(self):
-        self.summonerv4search(self.name)
-        self.leaguev4search(self.summonerid)
-        if self.puuid != "":
-            return(f"{self.name} is {self.fullrank}, {self.wr}")
+        if self.summonerv4search(self.name) and self.leaguev4search(self.summonerid):
+            if self.puuid != "":
+                return(f"{self.name} is {self.fullrank}, {self.wr}")
+            else:
+                return(f"not a valid name:{self.name}")
         else:
-            return(f"not a valid name:{self.name}")
+            return ("Not ranked")
     
     def tftsearch(self):
-        self.summonerv4search(self.name)
-        self.tftv1search(self.summonerid)
-        if self.puuid != "":
-            return(f"{self.name} is {self.fullrank}, {self.wr}")
+        print(self.summonerv4search(self.name))
+        print(self.tftv1search(self.summonerid))
+        if self.summonerv4search(self.name) and self.tftv1search(self.summonerid):
+            if self.puuid != "":
+                return(f"{self.name} is {self.fullrank}, {self.wr}")
+            else:
+                return(f"not a valid name:{self.name}")
         else:
-            return(f"not a valid name:{self.name}")
-
+            return("Not ranked")
 
