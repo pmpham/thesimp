@@ -135,5 +135,6 @@ class player(str):
         if self.summonerv4search(self.name) and self.tftv1search(self.summonerid):
             if self.puuid != "":
                 return(f"{self.name} is {self.fullrank}, {self.wr}")
+        else:
             return(f"not a valid name:{self.name}")
 
