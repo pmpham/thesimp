@@ -117,12 +117,14 @@ class player(str):
         return False
 
     def newleaguesearch(self):
+        print(self.summonerv4search(self.name))
+        print(self.leaguev4search(self.summonerid))
         if self.summonerv4search(self.name):
             if self.leaguev4search(self.summonerid):
                 if self.puuid != "":
                     return(f"{self.name} is {self.fullrank}, {self.wr}")
-            else:
-                return ("Not ranked")
+                else:
+                    return ("Not ranked")
         else:
             return(f"not a valid name:{self.name}")
 
