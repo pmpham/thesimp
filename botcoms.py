@@ -32,3 +32,4 @@ async def command(message, msgstring):
 
         if "!leyna" in msgstring:
             await message.channel.send("https://cdn.discordapp.com/attachments/814348422017712200/907523104434192384/unknown.png")
+            await message.channel.send("<@556719374359068675>")
