@@ -2,9 +2,9 @@ import discord
 from discord.ext.commands import Bot
 import botcoms
 
-from dotenv import load_dotenv
+""" from dotenv import load_dotenv
 load_dotenv()
-import os
+import os """
 
 bot = Bot(command_prefix='$')
 TOKEN = '<INSERT TOKEN HERE>'
