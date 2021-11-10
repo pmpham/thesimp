@@ -33,6 +33,9 @@ async def command(message, msgstring):
         if "!tft" in msgstring:
             await message.channel.send(riotcoms.player(msgstring[msgstring.index("!tft")+5:]).tftsearch())
 
-        if "!leyna" in msgstring:
+        if msgstring == "!leyna":
             await message.channel.send("https://cdn.discordapp.com/attachments/814348422017712200/907523104434192384/unknown.png")
             await message.channel.send("<@556719374359068675>")
+
+        if msgstring == "!source":
+            await message.channel.send("https://github.com/pmpham/thesimp")
