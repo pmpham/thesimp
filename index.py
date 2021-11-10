@@ -20,5 +20,5 @@ async def on_message(message):
     lowmsg = message.content.lower()
     await botcoms.command(message,lowmsg)
 
-#starting bot up
+#starting bot up with the key
 bot.run(os.getenv("DISCORD_KEY"))
