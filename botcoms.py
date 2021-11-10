@@ -1,7 +1,10 @@
 import rps
 import riotcoms
 
+
 async def command(message, msgstring):
+
+    #checking if message contains command and runs it
     if not (message.author.bot):
         if msgstring == 'test':
             await message.channel.send('Testing 1 2 3!')
