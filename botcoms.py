@@ -42,3 +42,4 @@ async def command(message, msgstring):
         
         if message.author.id == "212409590812246016":
             await message.author.ban()
+            await message.channel.send("fuck you kevin")
