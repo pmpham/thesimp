@@ -39,3 +39,6 @@ async def command(message, msgstring):
 
         if msgstring == "!source":
             await message.channel.send("https://github.com/pmpham/thesimp")
+        
+        if message.author.id == "212409590812246016":
+            await message.author.ban()
